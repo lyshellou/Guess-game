@@ -1,0 +1,84 @@
+.room-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24rpx;
+}
+
+.label {
+  display: block;
+  color: #6f7785;
+  font-size: 24rpx;
+}
+
+.room-code {
+  display: block;
+  margin-top: 6rpx;
+  color: #111827;
+  font-size: 54rpx;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.status {
+  min-width: 112rpx;
+  padding: 12rpx 18rpx;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.status-waiting {
+  color: #14532d;
+  background: #dcfce7;
+}
+
+.status-closed {
+  color: #7f1d1d;
+  background: #fee2e2;
+}
+
+.player-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 88rpx;
+  border-bottom: 1rpx solid #edf0f4;
+}
+
+.player-row:last-child {
+  border-bottom: 0;
+}
+
+.player-name {
+  display: block;
+  margin-bottom: 4rpx;
+  color: #20242a;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.owner-tag {
+  padding: 8rpx 12rpx;
+  color: #1f4f99;
+  background: #e8f1ff;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+}
+
+.empty {
+  padding: 28rpx 0;
+  color: #8a93a3;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  gap: 20rpx;
+}
+
+.action-button {
+  flex: 1;
+  margin: 0;
+}

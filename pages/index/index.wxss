@@ -1,0 +1,23 @@
+.header {
+  margin-bottom: 32rpx;
+}
+
+.title {
+  display: block;
+  color: #111827;
+  font-size: 46rpx;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.subtitle {
+  display: block;
+  margin-top: 12rpx;
+  color: #687386;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+.top-gap {
+  margin-top: 24rpx;
+}

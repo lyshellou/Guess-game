@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+miniprogram_npm/
+
+# WeChat DevTools local output and cache
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+.cache/
+.temp/
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment and local secrets
+.env
+.env.*
+!.env.example
+
+# Cloud function package manager artifacts generated after local installs
+cloudfunctions/**/node_modules/

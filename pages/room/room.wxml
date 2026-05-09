@@ -1,0 +1,39 @@
+<view class="page">
+  <view class="room-header">
+    <view>
+      <text class="label">房号</text>
+      <text class="room-code">{{roomCode || '--'}}</text>
+    </view>
+    <text class="status {{room.status === 'waiting' ? 'status-waiting' : 'status-closed'}}">
+      {{statusText}}
+    </text>
+  </view>
+
+  <view class="section">
+    <view class="section-title">成员</view>
+    <block wx:if="{{players.length}}">
+      <view class="player-row" wx:for="{{players}}" wx:key="openid">
+        <view>
+          <text class="player-name">{{item.name}}</text>
+          <text class="muted">{{item.openid === currentOpenid ? '当前用户' : '成员'}}</text>
+        </view>
+        <text class="owner-tag" wx:if="{{item.openid === room.ownerOpenid}}">房主</text>
+      </view>
+    </block>
+    <view class="empty" wx:else>暂无成员</view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">游戏占位</view>
+    <text class="muted">房间框架已就绪，后续具体游戏将接入这里的 gameState。</text>
+  </view>
+
+  <view class="actions">
+    <button class="secondary-button action-button" loading="{{loading}}" disabled="{{loading || leaving}}" bindtap="loadRoom">
+      刷新房间
+    </button>
+    <button class="danger-button action-button" loading="{{leaving}}" disabled="{{loading || leaving}}" bindtap="handleLeaveRoom">
+      离开房间
+    </button>
+  </view>
+</view>
