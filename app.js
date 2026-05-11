@@ -1,6 +1,7 @@
 App({
   globalData: {
-    cloudReady: false
+    cloudReady: false,
+    cloudEnvId: 'your-env-id'
   },
 
   onLaunch() {
@@ -9,8 +10,13 @@ App({
       return;
     }
 
+    if (this.globalData.cloudEnvId === 'your-env-id') {
+      console.warn('请先在 app.js 中配置云开发环境 ID');
+      return;
+    }
+
     wx.cloud.init({
-      env: 'your-env-id',
+      env: this.globalData.cloudEnvId,
       traceUser: true
     });
 

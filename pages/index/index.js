@@ -15,6 +15,10 @@ Page({
       return;
     }
 
+    if (!this.ensureCloudReady()) {
+      return;
+    }
+
     this.setData({ creating: true });
 
     try {
@@ -37,6 +41,10 @@ Page({
 
   async handleJoinRoom() {
     if (this.data.creating || this.data.joining) {
+      return;
+    }
+
+    if (!this.ensureCloudReady()) {
       return;
     }
 
@@ -71,6 +79,21 @@ Page({
     wx.navigateTo({
       url: `/pages/room/room?roomCode=${roomCode}`
     });
+  },
+
+  ensureCloudReady() {
+    const app = getApp();
+    if (app.globalData.cloudReady) {
+      return true;
+    }
+
+    wx.showModal({
+      title: '云开发未配置',
+      content: '请先使用真实小程序 AppID 打开项目，并把 app.js 中的 cloudEnvId 改成你的云开发环境 ID，然后部署 createRoom 云函数。',
+      showCancel: false
+    });
+
+    return false;
   },
 
   showError(message) {
