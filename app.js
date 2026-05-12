@@ -1,7 +1,7 @@
 App({
   globalData: {
     cloudReady: false,
-    cloudEnvId: 'your-env-id'
+    cloudEnvId: 'cloud1-d3g01b3rm5fbd5362'
   },
 
   onLaunch() {

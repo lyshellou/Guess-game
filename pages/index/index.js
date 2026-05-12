@@ -33,7 +33,8 @@ Page({
 
       this.goToRoom(response.room.roomCode);
     } catch (error) {
-      this.showError(error.message || '创建房间失败，请稍后再试');
+      console.error('createRoom failed', error);
+      this.showCloudError('创建房间失败', error);
     } finally {
       this.setData({ creating: false });
     }
@@ -69,7 +70,8 @@ Page({
 
       this.goToRoom(response.room.roomCode);
     } catch (error) {
-      this.showError(error.message || '加入房间失败，请稍后再试');
+      console.error('joinRoom failed', error);
+      this.showCloudError('加入房间失败', error);
     } finally {
       this.setData({ joining: false });
     }
@@ -100,6 +102,14 @@ Page({
     wx.showToast({
       title: message,
       icon: 'none'
+    });
+  },
+
+  showCloudError(title, error) {
+    wx.showModal({
+      title,
+      content: error.errMsg || error.message || '请检查云环境、云函数部署和 rooms 集合是否已创建。',
+      showCancel: false
     });
   }
 });
