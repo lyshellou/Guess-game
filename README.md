@@ -5,10 +5,8 @@
 ## 快速开始
 
 1. 使用微信开发者工具导入本目录。
-2. 将 `project.config.json` 中的 `appid` 替换为你的小程序 AppID。
-3. 开通云开发后，将 `app.js` 中的 `your-env-id` 替换为你的云开发环境 ID。
-4. 在云开发数据库中创建 `rooms` 集合。
-5. 右键部署以下云函数，并安装依赖：
+2. 在云开发数据库中创建 `rooms` 集合。
+3. 右键部署以下云函数，并安装依赖：
    - `createRoom`
    - `joinRoom`
    - `leaveRoom`

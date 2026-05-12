@@ -23,6 +23,8 @@ pnpm-debug.log*
 .env
 .env.*
 !.env.example
+env.local.js
+project.private.config.json
 
 # Cloud function package manager artifacts generated after local installs
 cloudfunctions/**/node_modules/
