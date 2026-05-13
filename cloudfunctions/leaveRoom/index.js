@@ -48,6 +48,7 @@ exports.main = async (event) => {
 
   if (nextPlayers.length === 0) {
     nextData.status = 'closed';
+    nextData.closedAt = db.serverDate();
   } else if (room.ownerOpenid === openid) {
     nextData.ownerOpenid = nextPlayers[0].openid;
   }

@@ -6,6 +6,7 @@ cloud.init({
 
 const db = cloud.database();
 const rooms = db.collection('rooms');
+const roomCodes = db.collection('roomCodes');
 
 function createRoomCode() {
   return String(Math.floor(100000 + Math.random() * 900000));
@@ -32,9 +33,10 @@ exports.main = async () => {
 
   for (let index = 0; index < 5; index += 1) {
     const roomCode = createRoomCode();
-    const existing = await rooms.where({ roomCode }).count();
+    const existingCode = await roomCodes.where({ roomCode }).count();
+    const existingRoom = await rooms.where({ roomCode }).count();
 
-    if (existing.total > 0) {
+    if (existingCode.total > 0 || existingRoom.total > 0) {
       continue;
     }
 
@@ -51,6 +53,13 @@ exports.main = async () => {
       createdAt: db.serverDate(),
       updatedAt: db.serverDate()
     };
+
+    await roomCodes.add({
+      data: {
+        roomCode,
+        reservedAt: db.serverDate()
+      }
+    });
 
     const addResult = await rooms.add({
       data: room
